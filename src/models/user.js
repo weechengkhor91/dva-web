@@ -1,5 +1,7 @@
 import {userInfo} from "../services/user";
 
+//change state
+// 需要dispatch(action) -> 調用 reducer改變state-> 重新渲染render
 export default {
   namespace: 'user',
   state: {
@@ -22,9 +24,7 @@ export default {
   //数据源可以是当前的时间、服务器的 websocket 连接、keyboard 输入、geolocation 变化、history 路由变化
   subscriptions: {
     setup({ dispatch, history }) {
-
       history.listen(({ pathname }) => {
-
         if (pathname === '/user') {
           dispatch({ type: 'fetchUserInfo' })
         }
